@@ -3,18 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onboarding Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>5-Step Configuration Form</title>
 </head>
 <body>
-    <h1>Onboarding Form</h1>
-    <form action="#" method="post">
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name" required><br><br>
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
-        <label for="position">Position:</label><br>
-        <input type="text" id="position" name="position" required><br><br>
-        <input type="submit" value="Submit">
-    </form>
+    <div class="form-container">
+        <h1>5-Step Configuration Form</h1>
+        <form id="configurationForm">
+            <div class="step" id="step1">
+                <h2>Step 1: User Information</h2>
+                <input type="text" name="username" placeholder="Username" required />
+                <input type="email" name="email" placeholder="Email" required />
+                <button type="button" onclick="nextStep(1)">Next</button>
+            </div>
+            <div class="step" id="step2" style="display:none;">
+                <h2>Step 2: Server Configuration</h2>
+                <input type="text" name="serverAddress" placeholder="Server Address" required />
+                <button type="button" onclick="nextStep(2)">Next</button>
+                <button type="button" onclick="prevStep(2)">Previous</button>
+            </div>
+            <div class="step" id="step3" style="display:none;">
+                <h2>Step 3: Database Settings</h2>
+                <input type="text" name="dbName" placeholder="Database Name" required />
+                <input type="text" name="dbUser" placeholder="Database User" required />
+                <button type="button" onclick="nextStep(3)">Next</button>
+                <button type="button" onclick="prevStep(3)">Previous</button>
+            </div>
+            <div class="step" id="step4" style="display:none;">
+                <h2>Step 4: API Keys</h2>
+                <input type="text" name="apiKey" placeholder="API Key" required />
+                <button type="button" onclick="nextStep(4)">Next</button>
+                <button type="button" onclick="prevStep(4)">Previous</button>
+            </div>
+            <div class="step" id="step5" style="display:none;">
+                <h2>Step 5: Confirmation</h2>
+                <p>Please confirm your information:</p>
+                <button type="submit">Submit</button>
+                <button type="button" onclick="prevStep(5)">Previous</button>
+            </div>
+            <input type="hidden" name="step" value="1" />
+        </form>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
